@@ -16,7 +16,7 @@ namespace Introduction_to_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Computer", action = "Display", id = UrlParameter.Optional }
             );
         }
     }
