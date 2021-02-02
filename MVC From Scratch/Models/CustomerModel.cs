@@ -6,8 +6,10 @@ using System.Web;
 
 namespace MVC_From_Scratch.Models
 {
+    //data annotation :attribute added to property to check the validation of data that send to this property
     public class CustomerModel
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage ="please enter your name")]
         public string Name { get; set; }
