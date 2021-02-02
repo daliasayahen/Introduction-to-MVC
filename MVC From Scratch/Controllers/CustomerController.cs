@@ -15,5 +15,16 @@ namespace MVC_From_Scratch.Controllers
             var CustomerModel = new CustomerModel(1 ,"dalia" , "AMMAN",26);
             return View(CustomerModel);
         }
+        /*html Helper it's class
+        that help to use HTML(inputText,button ...)
+        in c# code using Razor */
+
+        public ActionResult Create()
+        {
+
+            var cust = new CustomerModel();
+            return View();
+        }
+
     }
 }

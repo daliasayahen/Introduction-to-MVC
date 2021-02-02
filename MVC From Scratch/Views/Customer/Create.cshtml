@@ -1,0 +1,38 @@
+﻿@model MVC_From_Scratch.Models.CustomerModel
+
+@{
+                /**/
+
+                ViewBag.Title = "Create";
+}
+
+<table class="table-bordered table-hover" style="margin-top:100px">
+    <!--we add label + for expression if we use strongly type of data with => lamda expression
+        sane for Textbox , Text area ,...-->
+    <tr>
+        <td>@Html.Label("CustomerID", "Customer ID") </td>
+        <td>@Html.TextBox("CustomerID")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("CustomerName", "Customer Name") </td>
+        <td>@Html.TextBox("CustomerName")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("CustomerAddress", "Customer Address") </td>
+        <td>@Html.TextArea("CustomerAddress")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("CustomerAge", "Customer Age") </td>
+        <td>@Html.TextBox("CustomerAge")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("state", " customer state")</td>
+        <td>
+            @Html.RadioButton("Working", "working", true)
+            @Html.RadioButton("Working", "Not working", false)
+        </td>
+    </tr>
+</table>
+@Html.ActionLink("go to DisplayCostumer", "DisplayCostumer")
+
+
