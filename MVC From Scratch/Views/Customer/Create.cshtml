@@ -1,38 +1,51 @@
 ﻿@model MVC_From_Scratch.Models.CustomerModel
 
 @{
-                /**/
-
-                ViewBag.Title = "Create";
+    ViewBag.Title = "Create";
 }
 
-<table class="table-bordered table-hover" style="margin-top:100px">
-    <!--we add label + for expression if we use strongly type of data with => lamda expression
-        sane for Textbox , Text area ,...-->
-    <tr>
-        <td>@Html.Label("CustomerID", "Customer ID") </td>
-        <td>@Html.TextBox("CustomerID")</td>
-    </tr>
-    <tr>
-        <td>@Html.Label("CustomerName", "Customer Name") </td>
-        <td>@Html.TextBox("CustomerName")</td>
-    </tr>
-    <tr>
-        <td>@Html.Label("CustomerAddress", "Customer Address") </td>
-        <td>@Html.TextArea("CustomerAddress")</td>
-    </tr>
-    <tr>
-        <td>@Html.Label("CustomerAge", "Customer Age") </td>
-        <td>@Html.TextBox("CustomerAge")</td>
-    </tr>
-    <tr>
-        <td>@Html.Label("state", " customer state")</td>
-        <td>
-            @Html.RadioButton("Working", "working", true)
-            @Html.RadioButton("Working", "Not working", false)
-        </td>
-    </tr>
-</table>
-@Html.ActionLink("go to DisplayCostumer", "DisplayCostumer")
+<h2>Create</h2>
 
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>CustomerModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

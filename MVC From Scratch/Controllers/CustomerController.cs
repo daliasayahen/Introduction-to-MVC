@@ -17,12 +17,22 @@ namespace MVC_From_Scratch.Controllers
         }
         /*html Helper it's class
         that help to use HTML(inputText,button ...)
-        in c# code using Razor */
+        in c# code using Razor (use it in View) */
 
         public ActionResult Create()
         {
 
             var cust = new CustomerModel();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(CustomerModel cust)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("DisplayCostumer");
+            }
+           
             return View();
         }
 
