@@ -40,5 +40,9 @@ namespace MVC_From_Scratch.Controllers
             return View();
         }
 
+        public ActionResult GetList()
+        {
+            return View();
+        }
     }
 }
